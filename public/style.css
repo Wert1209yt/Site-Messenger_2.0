@@ -1,3 +1,22 @@
+#authPanel {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+#authPanel input {
+    margin-bottom: 5px;
+}
+
+#messageForm {
+    display: none;
+}
+
+#logoutButton {
+    display: none;
+}
+
 #messages {
     height: 300px;
     overflow-y: scroll;
