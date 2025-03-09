@@ -8,13 +8,13 @@ const sendVoiceButton = document.getElementById('sendVoiceButton');
 const logoutButton = document.getElementById('logoutButton');
 
 function loadMessages() {
-    fetch('/get-text')
+    fetch('/messages') // Исправленный URL
         .then(response => response.text())
         .then(data => messagesDiv.innerHTML = data);
 }
 
 function sendMessage() {
-    fetch('/save-text', {
+    fetch('/messages', { // Исправленный URL
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: messageInput.value })
@@ -25,19 +25,19 @@ function sendMessage() {
 function sendImage() {
     const formData = new FormData();
     formData.append('image', imageInput.files[0]);
-    fetch('/upload-image', { method: 'POST', body: formData }).then(loadMessages);
+    fetch('/messages/image', { method: 'POST', body: formData }).then(loadMessages); // Исправленный URL
     imageInput.value = '';
 }
 
 function sendVoice() {
     const formData = new FormData();
     formData.append('voice', voiceInput.files[0]);
-    fetch('/upload-voice', { method: 'POST', body: formData }).then(loadMessages);
+    fetch('/messages/voice', { method: 'POST', body: formData }).then(loadMessages); // Исправленный URL
     voiceInput.value = '';
 }
 
 function logout() {
-    fetch('/logout', { method: 'POST' }).then(() => window.location.href = '/');
+    fetch('/auth/logout', { method: 'POST' }).then(() => window.location.href = '/'); // Исправленный URL
 }
 
 sendButton.addEventListener('click', sendMessage);
