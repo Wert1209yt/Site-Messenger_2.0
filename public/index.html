@@ -5,8 +5,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="authPanel">
-        <input type="text" id="regNickname" placeholder="Никнейм">
+    <div id="authPanel" style="display: none;"> <input type="text" id="regNickname" placeholder="Никнейм">
         <input type="password" id="regPassword" placeholder="Пароль">
         <button id="registerButton">Регистрация</button>
         <input type="text" id="loginNickname" placeholder="Никнейм">
@@ -15,8 +14,7 @@
         <button id="logoutButton" style="display: none;">Выйти</button>
     </div>
     <div id="messages"></div>
-    <div id="messageForm">
-        <textarea id="messageInput"></textarea>
+    <div id="messageForm" style="display: none;"> <textarea id="messageInput"></textarea>
         <button id="sendButton">Отправить</button>
         <input type="file" id="imageInput" accept="image/*">
         <button id="sendImageButton">Отправить изображение</button>
