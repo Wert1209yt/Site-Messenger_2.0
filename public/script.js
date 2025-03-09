@@ -99,13 +99,17 @@ sendButton.addEventListener('click', sendMessage);
 sendImageButton.addEventListener('click', sendImage);
 sendVoiceButton.addEventListener('click', sendVoice);
 
-fetch('/messages')
-    .then(response => {
-        if (response.ok) {
-            showMessageForm();
-        } else {
-            showAuthPanel();
-        }
-    });
+function checkAuth() {
+    fetch('/messages')
+        .then(response => {
+            if (response.ok) {
+                showMessageForm();
+            } else {
+                showAuthPanel();
+            }
+        });
+}
+
+checkAuth();
 
 setInterval(loadMessages, 1000);
