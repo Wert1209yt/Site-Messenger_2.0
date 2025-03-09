@@ -1,5 +1,5 @@
 #authPanel {
-    display: block;
+    display: none;
     flex-direction: column;
     width: 300px;
     margin-bottom: 10px;
