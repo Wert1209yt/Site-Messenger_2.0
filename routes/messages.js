@@ -19,4 +19,3 @@ router.post('/image', authenticateToken, isUserBlocked, upload.single('image'), 
     if (!req.file) return handleError(res, 400, 'Файл не загружен.');
     messageService.appendText(`${req.user.nickname} отправил изображение: <img src="/uploads/${req.file.filename}" alt="Image">`);
     res.json({ message: 'Изображение успешно загружено.'
-              
