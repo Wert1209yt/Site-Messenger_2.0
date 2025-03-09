@@ -18,4 +18,17 @@ router.post('/', authenticateToken, isUserBlocked, (req, res) => {
 router.post('/image', authenticateToken, isUserBlocked, upload.single('image'), (req, res) => {
     if (!req.file) return handleError(res, 400, 'Файл не загружен.');
     messageService.appendText(`${req.user.nickname} отправил изображение: <img src="/uploads/${req.file.filename}" alt="Image">`);
-    res.json({ message: 'Изображение успешно загружено.'
+    res.json({ message: 'Изображение успешно загружено.' });
+});
+
+router.post('/voice', authenticateToken, isUserBlocked, upload.single('voice'), (req, res) => {
+    if (!req.file) return handleError(res, 400, 'Файл не загружен.');
+    messageService.appendText(`${req.user.nickname} отправил голосовое сообщение: <audio controls src="/uploads/${req.file.filename}"></audio>`);
+    res.json({ message: 'Голосовое сообщение успешно загружено.' });
+});
+
+router.get('/', (req, res) => {
+    res.send(messageService.readFile());
+});
+
+module.exports = router;
