@@ -1,5 +1,5 @@
 #authPanel {
-    display: flex;
+    display: none; /* Скрываем панель по умолчанию */
     flex-direction: column;
     width: 300px;
     margin-bottom: 10px;
@@ -10,7 +10,7 @@
 }
 
 #messageForm {
-    display: none;
+    display: none; /* Скрываем форму сообщений по умолчанию */
 }
 
 #logoutButton {
